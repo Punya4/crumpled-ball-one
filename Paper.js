@@ -5,17 +5,17 @@ class Paper{
     var option = {
             isStatic:false,
             restitution:0.7,
-            density:1,
+            density:1.2,
+            friction=0.5,
             
       
 
             
     }
 
-    this.body = Bodies.rectangle(x,y,w,h,option);
+    this.body = Bodies.circle(x,y,radius,option);
     World.add(world,this.body);
-    this.w=w;
-    this.h=h;
+    this.radius=radius;
   }
 
 
@@ -24,10 +24,11 @@ class Paper{
    push();
    translate(this.body.position.x,this.body.position.y);
    rotate(this.body.angle);
-    rectMode(CENTER);
-    rect(0,0,this.w,this.h);
     fill("purple")
     stroke("purple")
+    circleMode(CENTER);
+    circle(0,0,this.radius);
+    
    pop();
   }
 
